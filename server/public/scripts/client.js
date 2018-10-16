@@ -2,6 +2,7 @@ var canvas = document.querySelector('canvas');
 
 canvas.width = 300;
 canvas.height= 300;
+let bounced = false;
 
 var c = canvas.getContext('2d');
 
@@ -46,14 +47,26 @@ class Circles {
 
     update() {
         //write an if statement so balls never move too slow
-        if(Math.abs(this.endx-this.begx) < 1 && Math.abs(this.endy-this.begy) <1){
-            this.dx =0;
-            this.dy =0;
-        } else {
-            this.dx= (this.endx - this.begx)/4;
-            this.dy= (this.endy - this.begy)/4;
-        } 
-         
+        // if(Math.abs(this.endx-this.begx) < .5 && Math.abs(this.endy-this.begy) <.5){
+        //     this.dx =0;
+        //     this.dy =0;
+        // } else if(!bounced && this.begy < canvas.height/2){
+        //     this.dx= (this.endx - this.begx)/5;
+        //     this.dy = -(this.begy +this.endy)/5
+        // } else if(!bounced){
+        //     this.dx= (this.endx -this.begx)/5;
+        //     this.dy = ((canvas.height-this.endy)+(canvas.height-this.begy))/5;
+        // } else{
+        //     this.dx=(this.endx -this.begx)/5;
+        //     this.dy=(this.endy -this.begy)/5;
+        // }
+        // if(!bounced && (this.begy >= canvas.height || this.begy <= 0)) {
+        //     this.dy = -this.dy;
+        //     bounced = true;
+        // }
+
+        this.dx= (this.endx - this.begx)/4;
+        this.dy= (this.endy - this.begy)/4;
         this.begx+= this.dx
         this.begy+= this.dy
         this.draw();
