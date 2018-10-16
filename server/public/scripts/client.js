@@ -50,8 +50,8 @@ class Circles {
             this.dx =0;
             this.dy =0;
         } else {
-            this.dx= (this.endx - this.begx)/5;
-            this.dy= (this.endy - this.begy)/5;
+            this.dx= (this.endx - this.begx)/4;
+            this.dy= (this.endy - this.begy)/4;
         } 
          
         this.begx+= this.dx
