@@ -79,17 +79,39 @@ let circleArray = [];
 
 function setup() {
     let radius =1.5;
-    for(let i=1; i<20000;i++){
+    for(let i=0; i<20000;i++){
         //build a matrix of packed circles based on thier radius
-        let endx = (radius *i*2)%(canvas.width)//+(radius*(i%2))
-        let endy = Math.ceil(i/(canvas.width/(radius*2)))* Math.sqrt(3)*radius
+        let endx = (radius *i*2)%(canvas.width)+((Math.floor(i*2*radius/canvas.width))%2)
+        let endy = radius+(Math.ceil(i/(canvas.width/(radius*2)))*radius*1.5)
 
+    
         //randomize the ending position
         //let endx = Math.random()*300;
         //let endy = Math.random()*300;
-        let begx = Math.random()*300;
-        //let begx = Math.random()*50;  //make the beginning balls spawn nearthe edges
-        let begy = Math.random()*300;
+
+        //let begx = Math.random()*300;
+        //let begy = Math.random()*300;
+        //make the beginning balls spawn nearthe edges
+        let begx, begy
+        if(i<5000){
+            begx = Math.random()-0.5
+            if(begx >= 0){
+                begx =Math.random()*25- 225;
+                begy = Math.random()*300;
+            } else{
+                begx = Math.random()*25+ 500;
+                begy = Math.random()*300;
+            }
+        } else{
+            begy = Math.random()-0.5
+            if(begy<= 0){
+                begy =Math.random()*25-225;
+                begx = Math.random()*300;
+            } else{
+                begy = Math.random()*25+500;
+                begx = Math.random()*300;
+            }
+        }    
         //let radius = (Math.floor(Math.random()))+1
         let dx = endx-begx;
         let dy = endy-begy;
