@@ -1,20 +1,50 @@
+$(document).ready(onReady);
 var canvas = document.querySelector('canvas');
 
 canvas.width = 300;
 canvas.height= 300;
 let bounced = false;
-
-var c = canvas.getContext('2d');
-
+let newPic = `id="taco" width="300" height="300"  src="prime.png"`
 
 
- var can=document.getElementById("hide");
+function onReady(){
+    $('#submit').on('click', updateImage)
+    $('#hide').empty()
+    $('#hide').append(`<img ${newPic}>`)
+    makeCanvas();
+    
+
+}
+
+
+function updateImage() {
+    circleArray = []
+    newPic= `id="taco" width="300" height="300"  src="${$('#url').val()}" alt="prime.png"`
+    //console.log(newPic)
+    $('#hide').empty()
+    $('#hide').append(`<img ${newPic}>`)
+    makeCanvas();
+    
+}
+ let c, can, ctx, img
+
+function makeCanvas(){
+ c = canvas.getContext('2d');
+ can=document.getElementById("hide");
+ console.log(can)
  can.width = 300;
  can.height = 300;
- var ctx=can.getContext("2d");
- var img=document.getElementById("taco");
- ctx.drawImage(img,10,10);
+ ctx=can.getContext("2d");
+ img=document.getElementById("taco");
+ $('#taco').on('load',renderImage);
+ 
+}
 
+function renderImage(){
+    
+    setup();
+    animate();
+}
 
 
 function dist(x1,x2,y1,y2){
@@ -39,10 +69,11 @@ class Circles {
     draw() {
         c.beginPath()
         c.arc(this.begx,this.begy,this.radius,0,Math.PI *2, false);
-        c.strokeStyle = this.color;
-        c.stroke();
+        //c.strokeStyle = 'black';
+        //c.stroke();
         c.fillStyle =this.color;
         c.fill();
+        //console.log(this.color)
     }
 
     update() {
@@ -65,8 +96,8 @@ class Circles {
         //     bounced = true;
         // }
 
-        this.dx= (this.endx - this.begx)/4;
-        this.dy= (this.endy - this.begy)/4;
+        this.dx= (this.endx - this.begx)/10;
+        this.dy= (this.endy - this.begy)/10;
         this.begx+= this.dx
         this.begy+= this.dy
         this.draw();
@@ -78,6 +109,7 @@ class Circles {
 let circleArray = [];
 
 function setup() {
+    ctx.drawImage(img,10,10);
     let radius =1.5;
     for(let i=0; i<20000;i++){
         //build a matrix of packed circles based on thier radius
@@ -131,16 +163,22 @@ function setup() {
                 overlapping = true;
                 break;
             }
+             if(color === `rgba(0,0,0,0)`){
+                 overlapping = true;
+                 break;
+             }
         }
         if(overlapping== false){
             circleArray.push(circle);
             //console.log(circleArray);
         }
     }
+    //console.log(circleArray)
 }
-setup();
+// setup();
 
 function animate() {
+    //console.log(circleArray)
     requestAnimationFrame(animate);
     c.clearRect(0,0,innerWidth,innerHeight);
     for(let i = 0; i< circleArray.length; i++){
@@ -149,4 +187,4 @@ function animate() {
     }
 }
 
-animate();
+// animate();
