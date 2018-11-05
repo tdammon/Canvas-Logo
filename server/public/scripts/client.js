@@ -7,11 +7,13 @@ let bounced = false;
 let newPic = `id="taco" width="300" height="300"  src="prime.png"`
 
 
+
 function onReady(){
     $('#submit').on('click', updateImage)
     $('#hide').empty()
     $('#hide').append(`<img ${newPic}>`)
     makeCanvas();
+    
     
 
 }
@@ -110,7 +112,13 @@ let circleArray = [];
 
 function setup() {
     ctx.drawImage(img,10,10);
-    let radius =1.5;
+
+    let e =document.getElementById("size");
+    let radius = Number(e.options[e.selectedIndex].value);
+    console.log( typeof radius)
+    //let radius = 2;
+
+    console.log(radius)
     for(let i=0; i<20000;i++){
         //build a matrix of packed circles based on thier radius
         let endx = (radius *i*2)%(canvas.width)+((Math.floor(i*2*radius/canvas.width))%2)
