@@ -2,44 +2,53 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="jquery.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="style.css">
-        <style type='text/css'>
-            canvas{
-                border: 10px solid black;
-            }
-        </style>
-    </head>
-    <body>
-        <canvas id='balls'>
-            
-            
-        </canvas>
-        <canvas id='hide' style:'border: 10px solid black;'>
-                <!-- <img id="taco" width="300" height="300"  src="prime.png"> -->
-        </canvas>
-        <div>
-            <input id='url' placeholder="image url">
-            <button id='submit'>Submit</button>
-        </div>
-        <div>
-            <select id='size'>
-                <option value= '1.5'>Small</option>
-                <option value= '2.5'>Medium</option>
-                <option value= '3.5'>Large</option>
-            </select>
-        </div>
-        <!--[if lt IE 7]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+    <style type='text/css'>
+        canvas {
+            border: 10px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='balls'>
+
+
+    </canvas>
+    <canvas id='hide' style:'border: 10px solid black;'>
+        <!-- <img id="taco" width="300" height="300"  src="prime.png"> -->
+    </canvas>
+    <div>
+        <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+            <input type="submit">
+        </form>
+        <!-- <input id='url' placeholder="image url">
+            <button id='submit'>Submit</button> -->
+    </div>
+    <div>
+        <select id='size'>
+            <option value='1.5'>Small</option>
+            <option value='2.5'>Medium</option>
+            <option value='3.5'>Large</option>
+        </select>
+    </div>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <script src="client.js" async defer></script>
-    </body>
+
+    <script src="client.js" async defer></script>
+</body>
+
 </html>
