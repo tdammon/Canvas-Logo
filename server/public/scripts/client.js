@@ -28,6 +28,7 @@ function updateImage() {
 }
 
 function readImage(file) {
+  console.log(file);
   // Check if the file is an image.
   if (file.type && !file.type.startsWith("image/")) {
     console.log("File is not an image.", file.type, file);
