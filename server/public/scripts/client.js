@@ -28,18 +28,18 @@ function updateImage() {
 }
 
 function readImage(file) {
-  console.log(file[0].files);
+  console.log(file[0].files[0]);
   // Check if the file is an image.
-  if (file.type && !file.type.startsWith("image/")) {
-    console.log("File is not an image.", file.type, file);
-    return;
-  }
+  //   if (file.type && !file.type.startsWith("image/")) {
+  //     console.log("File is not an image.", file.type, file);
+  //     return;
+  //   }
 
   const reader = new FileReader();
   reader.addEventListener("load", (event) => {
     img.src = event.target.result;
   });
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(file[0].files);
 }
 
 let c, can, ctx, img;
