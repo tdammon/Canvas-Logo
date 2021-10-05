@@ -18,11 +18,11 @@ function onReady() {
 
 function updateImage() {
   circleArray = [];
-  console.log(${'#myFile'})
+  console.log($("#myFile"));
   newPic = `id="taco" width="300" height="300"  src="${$(
     "#myFile"
   ).val()}" alt="prime.png"`;
-  console.log(newPic)
+  console.log(newPic);
   $("#hide").empty();
   $("#hide").append(`<img ${newPic}>`);
   makeCanvas();
