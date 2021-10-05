@@ -19,7 +19,7 @@ function onReady() {
 function updateImage() {
   circleArray = [];
   newPic = `id="taco" width="300" height="300"  src="${$(
-    "#myFile"
+    readImage("#myFile")
   )}" alt="prime.png"`;
 
   $("#hide").empty();
@@ -27,19 +27,19 @@ function updateImage() {
   makeCanvas();
 }
 
-// function readImage(file) {
-//     // Check if the file is an image.
-//     if (file.type && !file.type.startsWith('image/')) {
-//       console.log('File is not an image.', file.type, file);
-//       return;
-//     }
+function readImage(file) {
+  // Check if the file is an image.
+  if (file.type && !file.type.startsWith("image/")) {
+    console.log("File is not an image.", file.type, file);
+    return;
+  }
 
-//     const reader = new FileReader();
-//     reader.addEventListener('load', (event) => {
-//       img.src = event.target.result;
-//     });
-//     reader.readAsDataURL(file);
-//   }
+  const reader = new FileReader();
+  reader.addEventListener("load", (event) => {
+    img.src = event.target.result;
+  });
+  reader.readAsDataURL(file);
+}
 
 let c, can, ctx, img;
 
