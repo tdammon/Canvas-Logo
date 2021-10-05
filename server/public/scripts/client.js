@@ -19,7 +19,7 @@ function onReady() {
 function updateImage() {
   circleArray = [];
   newPic = `id="taco" width="300" height="300"  src="${readImage(
-    $("#myFile")
+    $("#myFile").val()
   )}" alt="prime.png"`;
 
   $("#hide").empty();
