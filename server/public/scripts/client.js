@@ -39,7 +39,7 @@ function readImage(file) {
   reader.addEventListener("load", (event) => {
     img.src = event.target.result;
   });
-  reader.readAsDataURL(file[0].files);
+  reader.readAsDataURL(file[0].files[0]);
 }
 
 let c, can, ctx, img;
