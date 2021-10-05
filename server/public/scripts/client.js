@@ -7,7 +7,10 @@ let bounced = false;
 let newPic = `id="taco" width="300" height="300"  src="prime.png"`;
 
 function onReady() {
-  $("#submit").on("click", updateImage);
+  $("#submit").on("click", function (event) {
+    event.preventDefault();
+    updateImage();
+  });
   $("#hide").empty();
   $("#hide").append(`<img ${newPic}>`);
   makeCanvas();
