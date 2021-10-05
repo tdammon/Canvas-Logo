@@ -28,7 +28,7 @@ function updateImage() {
 }
 
 function readImage(file) {
-  console.log(file.files);
+  console.log(file);
   // Check if the file is an image.
   if (file.type && !file.type.startsWith("image/")) {
     console.log("File is not an image.", file.type, file);
@@ -39,7 +39,7 @@ function readImage(file) {
   reader.addEventListener("load", (event) => {
     img.src = event.target.result;
   });
-  reader.readAsDataURL(file.files);
+  reader.readAsDataURL(file);
 }
 
 let c, can, ctx, img;
