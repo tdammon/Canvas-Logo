@@ -18,7 +18,7 @@ function onReady() {
 
 function updateImage() {
   circleArray = [];
-  console.log($("#myFile"));
+  console.log($("#myFile.files"));
   newPic = `id="taco" width="300" height="300"  src="${$(
     "#myFile"
   ).val()}" alt="prime.png"`;
