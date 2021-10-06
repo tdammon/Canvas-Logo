@@ -119,7 +119,7 @@ class Circles {
 let circleArray = [];
 
 function setup() {
-  ctx.drawImage(img, 10, 10);
+  ctx.drawImage(img, 0, 0);
 
   let e = document.getElementById("size");
   let radius = Number(e.options[e.selectedIndex].value);
