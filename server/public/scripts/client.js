@@ -4,7 +4,7 @@ var canvas = document.querySelector("canvas");
 canvas.width = 300;
 canvas.height = 300;
 let bounced = false;
-let newPic = `id="taco" width="300" height="300"  src="prime.png"`;
+let newPic = `id="taco" width="300" height="300" style="margin:auto" src="prime-copy.png"`;
 
 function onReady() {
   $("#submit").on("click", function (event) {
